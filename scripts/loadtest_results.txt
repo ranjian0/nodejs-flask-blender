@@ -13,9 +13,9 @@ Threaded
 Load Test Statistics:
 ---------------------
 Total Requests: 10000
-Successful Requests: 9664
-Failed Requests: 336
-Total Time: 18157049.11 milliseconds
-Average Latency: 1815.70 milliseconds
-Throughput: 0.53 requests per second
+Successful Requests: 9303
+Failed Requests: 697
+Total Time: 2046030.28 milliseconds
+Average Latency: 204.60 milliseconds
+Throughput: 4.55 requests per second
 ---------------------

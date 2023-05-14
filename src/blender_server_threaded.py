@@ -43,21 +43,24 @@ def process_commands():
 
 def run_socket_server():
     print("Socket server listening on localhost:5001")
+    def handle_connection(conn, addr):
+        with conn:
+            print('Connected by', addr)
+            while True:
+                data = conn.recv(1024)
+                if not data:
+                    break
+                command = data.decode('utf-8')
+                command_queue.put((conn, command))
+
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(('localhost', 5001))
         s.listen()
         try:
             while True:
                 conn, addr = s.accept()
-                with conn:
-                    print('Connected by', addr)
-                    while True:
-                        data = conn.recv(1024)
-                        if not data:
-                            break
-                        command = data.decode('utf-8')
-                        command_queue.put((conn, command))
-
+                t = Thread(target=handle_connection, args=(conn, addr))
+                t.start()
         except KeyboardInterrupt:
             print("Socket server killed ...")
 

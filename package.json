@@ -7,7 +7,8 @@
     "blender": "blender -b -P src/blender_server.py",
     "blender:threaded": "blender -b -P src/blender_server_threaded.py",
     "flask": "flask --app=src/flask_server run --debug",
-    "client": "node src/client.js"
+    "client": "node src/client.js",
+    "loadtest": "node scripts/loadtest"
   },
   "keywords": [],
   "author": "",
