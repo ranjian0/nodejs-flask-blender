@@ -1,0 +1,17 @@
+{
+  "name": "blender-flask-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "blender": "blender -b -P blender_server.py",
+    "flask": "flask --app=flask_server run --debug",
+    "client": "node client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
