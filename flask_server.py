@@ -1,6 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, Response
 import socket
-import json
 
 app = Flask(__name__)
 
@@ -13,12 +12,9 @@ def get_data():
             s.connect(('localhost', 5001))
             s.sendall(command.encode('utf-8'))
             data = s.recv(1024)
-        response = json.loads(data.decode('utf-8'))
-        if 'error' in response:
-            return jsonify(error=response['error']), 400
-        return jsonify(vertices=response['vertices'], faces=response['faces'])
+        return Response(data, mimetype='application/octet-stream')
 
-    return jsonify(error='Invalid command'), 400
+    return Response(b'Invalid command', status=400)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
