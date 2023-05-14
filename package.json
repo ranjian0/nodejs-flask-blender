@@ -4,9 +4,10 @@
   "description": "",
   "main": "client.js",
   "scripts": {
-    "blender": "blender -b -P blender_server.py",
-    "flask": "flask --app=flask_server run --debug",
-    "client": "node client.js"
+    "blender": "blender -b -P src/blender_server.py",
+    "blender:threaded": "blender -b -P src/blender_server_threaded.py",
+    "flask": "flask --app=src/flask_server run --debug",
+    "client": "node src/client.js"
   },
   "keywords": [],
   "author": "",

@@ -3,6 +3,10 @@ import socket
 
 app = Flask(__name__)
 
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    return "Hello"
+
 @app.route('/data', methods=['POST'])
 def get_data():
     command = request.json.get('command')

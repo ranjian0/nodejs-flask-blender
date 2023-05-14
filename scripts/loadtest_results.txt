@@ -1,0 +1,21 @@
+Single
+Load Test Statistics:
+---------------------
+Total Requests: 10000
+Successful Requests: 8985
+Failed Requests: 1015
+Total Time: 1405318.45 milliseconds
+Average Latency: 140.53 milliseconds
+Throughput: 6.39 requests per second
+
+
+Threaded
+Load Test Statistics:
+---------------------
+Total Requests: 10000
+Successful Requests: 9664
+Failed Requests: 336
+Total Time: 18157049.11 milliseconds
+Average Latency: 1815.70 milliseconds
+Throughput: 0.53 requests per second
+---------------------
