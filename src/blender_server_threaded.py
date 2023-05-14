@@ -6,9 +6,7 @@ from queue import Queue
 from threading import Thread
 
 command_queue = Queue()
-
-def handle_command(conn, command):
-    command_queue.put((conn, command))
+    
 
 def process_commands():
     while True:
@@ -58,7 +56,7 @@ def run_socket_server():
                         if not data:
                             break
                         command = data.decode('utf-8')
-                        handle_command(conn, command)
+                        command_queue.put((conn, command))
 
         except KeyboardInterrupt:
             print("Socket server killed ...")
